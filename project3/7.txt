@@ -1,0 +1,11 @@
+DROP FUNCTION IF EXISTS get_loan_counts;
+DELIMITER $$
+create function get_loan_counts(customer_id varchar(10)) returns INT
+begin	
+	Declare lCount INT;
+	select count(*) into lCount
+	from customer natural join borrower as t
+	where t.customer_id = customer_id;
+	Return lCount;
+END $$ 
+DELIMITER ;

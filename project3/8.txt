@@ -1,0 +1,3 @@
+select customer_name, customer_city
+from customer
+where get_loan_counts(customer_id) >= 2;
