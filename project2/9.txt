@@ -1,0 +1,7 @@
+update account 
+set balance = 
+case
+    when balance >= 1000 and balance*1.05 <=150000 then balance*1.05
+    when balance >= 1000 and balance*1.05 > 150000 then balance
+    else balance*1.03
+end;

@@ -1,0 +1,8 @@
+update customer 
+set customer_type = 'VIP' 
+where customer_id in (
+select t.customer_id 
+from (select customer_id 
+from customer natural join depositor natural join account 
+group by customer_id
+having sum(balance)>=10000) as t);

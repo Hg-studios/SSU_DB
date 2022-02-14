@@ -1,0 +1,3 @@
+select sum(amount)
+from customer natural join borrower natural join loan
+where customer_name like '±è%';
